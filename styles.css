@@ -112,7 +112,7 @@ html.is-embedded .navbar {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #ffffff;
+  color: var(--ink);
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   font-size: 28px;
   font-weight: 700;
@@ -129,11 +129,11 @@ html.is-embedded .navbar {
 }
 
 .nav-about {
-  color: #ffffff;
+  color: var(--ink);
   font-size: 16px;
   font-weight: 400;
   text-decoration: none;
-  opacity: .9;
+  opacity: .88;
 }
 
 .nav-about:hover,
@@ -157,9 +157,9 @@ html.is-embedded .navbar {
 .lang-trigger {
   background: none;
   border: none;
-  color: #ffffff;
+  color: var(--ink);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -170,7 +170,7 @@ html.is-embedded .navbar {
 }
 
 .lang-trigger:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(49 49 58 / .06);
 }
 
 .lang-arrow {
@@ -185,16 +185,16 @@ html.is-embedded .navbar {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 16px;
   padding: 6px;
   display: none;
   flex-direction: column;
   min-width: 80px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(49, 49, 58, 0.08);
   z-index: 150;
 }
 
@@ -204,7 +204,7 @@ html.is-embedded .navbar {
 
 .lang-dropdown a {
   text-decoration: none;
-  color: #ffffff;
+  color: var(--ink);
   font-size: 14px;
   padding: 8px 12px;
   border-radius: 10px;
@@ -214,7 +214,7 @@ html.is-embedded .navbar {
 }
 
 .lang-dropdown a:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(49 49 58 / .06);
 }
 
 .social-icons {
@@ -253,7 +253,7 @@ html.is-embedded .navbar {
   width: 32px;
   height: 3px;
   border-radius: 10px;
-  background: #ffffff;
+  background: var(--ink);
   transform-origin: 1px;
   transition: all .3s linear;
 }
@@ -316,6 +316,10 @@ html.is-embedded .navbar {
 .mobile-social {
   display: flex;
   gap: 32px;
+}
+
+.navbar.menu-open .nav-home {
+  color: #ffffff;
 }
 
 .navbar.menu-open .burger-menu span {
