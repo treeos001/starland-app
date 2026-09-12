@@ -33,7 +33,7 @@
     <script>
       if (window.parent !== window) document.documentElement.classList.add("is-embedded");
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260912-app-01" />
+    <link rel="stylesheet" href="styles.css?v=20260912-nav-07" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -68,10 +68,59 @@
   <body>
     <div class="scene-bg" id="scene-privacy" aria-hidden="true"></div>
     <a class="skip-link localize" href="#record" data-en="Skip to content" data-zh="跳到正文">Skip to content</a>
-    <nav class="lang-switch" aria-label="Language">
-      <button type="button" data-lang="en" aria-pressed="true">En</button>
-      <button type="button" data-lang="zh" aria-pressed="false">中</button>
-    </nav>
+    <header class="navbar">
+      <div class="nav-left">
+        <a class="nav-home" href="./">
+          <img class="nav-app-icon" src="Assets/Starland/app-icon.png" alt="" />
+          <span>MyStarland</span>
+        </a>
+      </div>
+      <div class="nav-right">
+        <a class="nav-about localize" href="#about" id="aboutModalOpen" role="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="aboutModal" data-en="About" data-zh="关于">About</a>
+        <div class="lang-selector">
+          <button class="lang-trigger" id="langTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <span id="currentLang">En</span>
+            <svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown" role="listbox">
+            <a href="#" role="option" data-lang="zh">中</a>
+            <a href="#" role="option" data-lang="en">En</a>
+          </div>
+        </div>
+        <div class="social-icons">
+          <a class="social-link" href="https://www.xiaohongshu.com/user/profile/5e56621c0000000001004885?xsec_token=YBqgjhpWcEMDag6dY9kp-q4vRDh8qoKZPtLFFIorZBJxc=&amp;xsec_source=app_share" target="_blank" rel="noopener noreferrer" aria-label="Xiaohongshu">
+            <img src="Assets/SocialLogo/ic/Red.svg" alt="" />
+          </a>
+          <a class="social-link" href="https://x.com/treeman730" target="_blank" rel="noopener noreferrer" aria-label="X">
+            <img src="Assets/SocialLogo/ic/X.svg" alt="" />
+          </a>
+        </div>
+        <button class="burger-menu" id="burgerToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mobileMenu" data-aria-en="Open menu" data-aria-zh="打开菜单" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="mobile-overlay" id="mobileMenu">
+        <nav class="mobile-nav">
+          <a href="#about" class="mobile-nav-item mobile-about-open localize" role="button" data-en="About" data-zh="关于">About</a>
+          <div class="mobile-lang">
+            <a href="#" role="option" data-lang="zh">中</a>
+            <a href="#" role="option" data-lang="en">En</a>
+          </div>
+        </nav>
+        <div class="mobile-social">
+          <a class="social-link" href="https://www.xiaohongshu.com/user/profile/5e56621c0000000001004885?xsec_token=YBqgjhpWcEMDag6dY9kp-q4vRDh8qoKZPtLFFIorZBJxc=&amp;xsec_source=app_share" target="_blank" rel="noopener noreferrer" aria-label="Xiaohongshu">
+            <img src="Assets/SocialLogo/ic/Red.svg" alt="" />
+          </a>
+          <a class="social-link" href="https://x.com/treeman730" target="_blank" rel="noopener noreferrer" aria-label="X">
+            <img src="Assets/SocialLogo/ic/X.svg" alt="" />
+          </a>
+        </div>
+      </div>
+    </header>
 
     <div class="travel-orb" id="travel-orb" aria-hidden="true">
       <span class="orb-glow"></span>
@@ -294,6 +343,45 @@
       <p>© <span id="year"></span> MyStarland</p>
     </footer>
 
-    <script src="app.js?v=20260912-app-01"></script>
+    <div class="modal-overlay" id="aboutModal" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle" aria-hidden="true">
+      <div class="modal-scrim" aria-hidden="true"></div>
+      <div class="modal-container modal-container--about">
+        <div class="modal-mobile-header">
+          <button class="modal-back" id="aboutMobileBack" type="button" data-aria-en="Close" data-aria-zh="关闭" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <span class="modal-title localize" data-en="About" data-zh="关于">About</span>
+        </div>
+        <button class="modal-close" id="aboutModalClose" type="button" data-aria-en="Close" data-aria-zh="关闭" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+        <div class="about-modal-body">
+          <img src="Assets/PersonalLogo.svg" alt="祝以南 SHUKUINAN" class="about-modal__logo" width="160" />
+          <h2 id="aboutModalTitle" class="about-modal__name">Shukuinan</h2>
+          <p class="about-modal__role">Designer：Brand｜Print｜UI｜illustration｜Product Design｜Offline Vision｜Creativity</p>
+          <p class="about-modal__text localize"
+             data-zh="热爱设计和画画。有几个个人的小项目，分别是<a href='https://www.instagram.com/heyastronaut001' target='_blank' class='inline-link'>《宇宙飞行士》</a>（插画项目）、<a href='https://www.xiaohongshu.com/collection/item/67c198460259000000000001?xhsshare=CopyLink&amp;appuid=5e56621c0000000001004885&amp;apptime=1766322275&amp;share_id=de329cdb8dbd491e8a088997de94f2d8' target='_blank' class='inline-link'>云朵系列</a>（插画项目）、<a href='https://apps.apple.com/cn/app/%E6%97%A5%E8%90%BD%E5%B2%9B/id6743801054' target='_blank' class='inline-link'>日落岛 App</a>(2025)、<a href='https://muse-tap.com/' target='_blank' rel='noopener noreferrer' class='inline-link'>MuseTap</a>。"
+             data-en="Passionate about design and drawing. Several personal projects: <a href='https://www.instagram.com/heyastronaut001' target='_blank' class='inline-link'>Heyastronaut</a> (Illustration Project), <a href='https://www.xiaohongshu.com/collection/item/67c198460259000000000001?xhsshare=CopyLink&amp;appuid=5e56621c0000000001004885&amp;apptime=1766322275&amp;share_id=de329cdb8dbd491e8a088997de94f2d8' target='_blank' class='inline-link'>Cloud Series</a> (Illustration Project), <a href='https://apps.apple.com/cn/app/%E6%97%A5%E8%90%BD%E5%B2%9B/id6743801054' target='_blank' class='inline-link'>Sunmuse App</a> (2025), <a href='https://muse-tap.com/' target='_blank' rel='noopener noreferrer' class='inline-link'>MuseTap</a>.">
+            Passionate about design and drawing. Several personal projects: Heyastronaut (Illustration Project), Cloud Series (Illustration Project), Sunmuse App (2025), MuseTap.
+          </p>
+          <p class="about-modal__text localize"
+             data-zh="喜欢美丽的事物，并在工作中为此而努力。"
+             data-en="Love beautiful things and work hard for them.">
+            Love beautiful things and work hard for them.
+          </p>
+          <p class="about-modal__contact localize"
+             data-zh="联系我：<a href='mailto:treeos001@gmail.com' class='inline-link'>treeos001@gmail.com</a>"
+             data-en="Get in touch: <a href='mailto:treeos001@gmail.com' class='inline-link'>treeos001@gmail.com</a>">
+            Get in touch: <a href="mailto:treeos001@gmail.com" class="inline-link">treeos001@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js?v=20260912-nav-07"></script>
   </body>
 </html>

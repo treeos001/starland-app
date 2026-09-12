@@ -131,11 +131,8 @@ function applyLang(nextLang) {
   lang = nextLang.startsWith("zh") ? "zh" : "en";
   document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
   try { localStorage.setItem(LANG_KEY, lang); } catch (_) {}
-  document.querySelectorAll(".lang-switch button").forEach((btn) => {
-    const on = btn.dataset.lang === lang;
-    btn.classList.toggle("is-active", on);
-    btn.setAttribute("aria-pressed", on ? "true" : "false");
-  });
+  const currentLangText = document.querySelector("#currentLang");
+  if (currentLangText) currentLangText.textContent = lang === "zh" ? "中" : "En";
   const title = lang === "zh"
     ? "MyStarland — 普通的日子也会消失，给它们一个留下来的地方。"
     : "MyStarland — Ordinary moments disappear. Give them somewhere to stay.";
@@ -158,6 +155,9 @@ function applyLang(nextLang) {
   });
   document.querySelectorAll(".island-card").forEach((card) => {
     card.querySelector("img").alt = lang === "zh" ? card.dataset.nameZh : card.dataset.nameEn;
+  });
+  document.querySelectorAll(".mobile-lang a").forEach((el) => {
+    el.classList.toggle("is-active", el.dataset.lang === lang);
   });
   if (activeCard) fillIslandCopy(activeCard);
   else {
@@ -814,10 +814,125 @@ new IntersectionObserver((entries) => {
   else showcaseVideo.pause();
 }, { threshold: 0.12, rootMargin: "50% 0px" }).observe(showcasePhone);
 
-document.querySelectorAll(".lang-switch button").forEach((btn) => {
-  btn.addEventListener("click", () => applyLang(btn.dataset.lang));
-});
+const langTrigger = document.querySelector("#langTrigger");
+const langSelector = document.querySelector(".lang-selector");
+if (langTrigger && langSelector) {
+  langTrigger.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const open = langSelector.classList.toggle("open");
+    langTrigger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.querySelectorAll(".lang-dropdown a").forEach((item) => {
+    item.addEventListener("click", (event) => {
+      event.preventDefault();
+      applyLang(item.dataset.lang);
+      langSelector.classList.remove("open");
+      langTrigger.setAttribute("aria-expanded", "false");
+    });
+  });
+  document.addEventListener("click", () => {
+    langSelector.classList.remove("open");
+    langTrigger.setAttribute("aria-expanded", "false");
+  });
+}
 applyLang(detectLang());
+
+const navbar = document.querySelector(".navbar");
+const burgerToggle = document.querySelector("#burgerToggle");
+const mobileMenu = document.querySelector("#mobileMenu");
+
+function closeMobileMenuIfOpen() {
+  if (!mobileMenu?.classList.contains("open")) return;
+  burgerToggle?.classList.remove("open");
+  mobileMenu.classList.remove("open");
+  navbar?.classList.remove("menu-open");
+  burgerToggle?.setAttribute("aria-expanded", "false");
+  burgerToggle?.setAttribute("aria-label", lang === "zh" ? "打开菜单" : "Open menu");
+  if (!aboutModal?.classList.contains("show")) document.body.style.overflow = "";
+}
+
+if (burgerToggle && mobileMenu) {
+  burgerToggle.addEventListener("click", () => {
+    const open = !mobileMenu.classList.contains("open");
+    burgerToggle.classList.toggle("open", open);
+    mobileMenu.classList.toggle("open", open);
+    navbar?.classList.toggle("menu-open", open);
+    burgerToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    burgerToggle.setAttribute("aria-label", open
+      ? (lang === "zh" ? "关闭菜单" : "Close menu")
+      : (lang === "zh" ? "打开菜单" : "Open menu"));
+    document.body.style.overflow = open || aboutModal?.classList.contains("show") ? "hidden" : "";
+  });
+}
+
+document.querySelectorAll(".mobile-lang a").forEach((item) => {
+  item.addEventListener("click", (event) => {
+    event.preventDefault();
+    applyLang(item.dataset.lang);
+  });
+});
+
+const aboutModal = document.querySelector("#aboutModal");
+const aboutModalOpen = document.querySelector("#aboutModalOpen");
+const aboutModalClose = document.querySelector("#aboutModalClose");
+const aboutMobileBack = document.querySelector("#aboutMobileBack");
+
+function openAboutModal() {
+  if (!aboutModal || aboutModal.classList.contains("show")) return;
+  aboutModal.classList.add("show");
+  aboutModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  aboutModalOpen?.setAttribute("aria-expanded", "true");
+  if (location.hash !== "#about") history.replaceState(null, "", "#about");
+}
+
+function closeAboutModal() {
+  if (!aboutModal || !aboutModal.classList.contains("show")) {
+    if (location.hash === "#about") history.replaceState(null, "", location.pathname + location.search);
+    return;
+  }
+  aboutModal.classList.remove("show");
+  aboutModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = mobileMenu?.classList.contains("open") ? "hidden" : "";
+  aboutModalOpen?.setAttribute("aria-expanded", "false");
+  if (location.hash === "#about") history.replaceState(null, "", location.pathname + location.search);
+}
+
+if (aboutModalOpen) {
+  aboutModalOpen.addEventListener("click", (event) => {
+    event.preventDefault();
+    openAboutModal();
+  });
+}
+document.querySelectorAll(".mobile-about-open").forEach((el) => {
+  el.addEventListener("click", (event) => {
+    event.preventDefault();
+    closeMobileMenuIfOpen();
+    openAboutModal();
+  });
+});
+aboutModalClose?.addEventListener("click", closeAboutModal);
+aboutMobileBack?.addEventListener("click", closeAboutModal);
+aboutModal?.addEventListener("click", (event) => {
+  if (!event.target.closest(".modal-container")) closeAboutModal();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  if (aboutModal?.classList.contains("show")) {
+    closeAboutModal();
+    return;
+  }
+  closeMobileMenuIfOpen();
+});
+window.addEventListener("hashchange", () => {
+  if (location.hash === "#about") openAboutModal();
+  else closeAboutModal();
+});
+if (location.hash === "#about") openAboutModal();
+
+window.matchMedia("(max-width: 767px)").addEventListener("change", (event) => {
+  if (!event.matches) closeMobileMenuIfOpen();
+});
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 
