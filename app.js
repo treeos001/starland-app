@@ -87,7 +87,7 @@ let recordPlaying = false;
 let recordIntroPending = true;
 const recordVideos = {
   zh: { src: "Assets/Starland/zh.mp4?v=20260911-play-03", start: 9 },
-  en: { src: "Assets/Starland/en.mp4?v=20260911-play-03", start: 13 },
+  en: { src: "Assets/Starland/en.mp4?v=20260911-play-03", start: 12.5 },
 };
 const showcaseMedia = {
   zh: {
