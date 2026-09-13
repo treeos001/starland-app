@@ -1,16 +1,18 @@
-# MyStarland
+# Starland
 
-> MyStarland (also called Starland / 记忆岛) is a personal memory app for iPhone. Write down a moment, and it becomes a colored memory orb, then an island. Memory analysis happens on the device first. It does not rely on ads, and does not sell personal data.
+> Starland (记忆岛) is a personal memory app for iPhone. Write down a moment, and it becomes a colored memory orb, then an island. Memory analysis happens on the device first. It does not rely on ads, and does not sell personal data.
 
 The product is designed by Shukuinan (祝以南).
 
 ## Pages
 
-- [MyStarland](https://starland.app/): English product page
+- [Starland](https://starland.app/): English product page
 - [记忆岛](https://starland.app/zh/): Chinese product page
 
 ## Facts
 
+- English name: Starland
+- Chinese name: 记忆岛
 - Platform: iPhone
 - Trial: English speakers can find Shukuinan on X (@treeman730). Chinese speakers can find 祝以南 on Xiaohongshu.
 - Related work: [wowdesign.fun](https://www.wowdesign.fun/), [muse-tap.com](https://muse-tap.com/)

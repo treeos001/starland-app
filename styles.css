@@ -158,6 +158,12 @@ html.is-embedded .navbar {
   text-decoration: none;
 }
 
+html[lang="zh-CN"] .nav-home {
+  font-family: "Songti SC", "STSong", "Noto Serif SC", Georgia, serif;
+  font-style: normal;
+  letter-spacing: .08em;
+}
+
 .nav-app-icon {
   display: block;
   width: 48px;
@@ -633,6 +639,12 @@ html.is-embedded .navbar {
   font-weight: 700;
   font-style: italic;
   letter-spacing: -.06em;
+}
+
+html[lang="zh-CN"] .wordmark {
+  font-family: "Songti SC", "STSong", "Noto Serif SC", Georgia, serif;
+  font-style: normal;
+  letter-spacing: .12em;
 }
 
 h1, h2, h3, p { margin-top: 0; }

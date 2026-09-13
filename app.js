@@ -148,6 +148,7 @@ function applyLang(nextLang) {
   document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", title);
   document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", description);
   document.querySelector('meta[property="og:locale"]')?.setAttribute("content", lang === "zh" ? "zh_CN" : "en_US");
+  document.querySelector('meta[property="og:site_name"]')?.setAttribute("content", lang === "zh" ? "记忆岛" : "Starland");
   document.querySelectorAll(".localize").forEach((el) => {
     const copy = lang === "zh" ? el.dataset.zh : el.dataset.en;
     if (copy) el.innerHTML = copy;
