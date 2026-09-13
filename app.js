@@ -88,8 +88,8 @@ let currentView = "home";
 let recordPlaying = false;
 let recordIntroPending = true;
 const recordVideos = {
-  zh: { src: asset("Assets/Starland/zh.mp4?v=20260911-play-03"), start: 9 },
-  en: { src: asset("Assets/Starland/en.mp4?v=20260911-play-03"), start: 12.5 },
+  zh: { src: asset("Assets/Starland/zh.mp4?v=20260913-play-04"), start: 9 },
+  en: { src: asset("Assets/Starland/en.mp4?v=20260913-play-04"), start: 12.5 },
 };
 const showcaseMedia = {
   zh: {
@@ -178,6 +178,10 @@ function applyLang(nextLang) {
 
 window.addEventListener("message", (event) => {
   if (event.data?.type === "starland-lang") applyLang(event.data.lang);
+  if (event.data?.type === "starland-unlock") {
+    if (recordVideo.paused) startRecordVideo();
+    if (showcaseVideo?.paused) tryPlayShowcase();
+  }
 });
 
 if (window.parent !== window) {
@@ -413,20 +417,29 @@ function playVideo(video) {
 }
 
 function playVideoAt(video, start) {
+  armVideo(video);
   const kick = () => playVideo(video);
-  const run = () => {
+  const cue = () => {
     if (start > 0 && Math.abs(video.currentTime - start) > 0.35) {
       video.addEventListener("seeked", kick, { once: true });
       video.currentTime = start;
       window.setTimeout(() => {
         if (video.paused) kick();
-      }, 500);
+      }, 800);
       return;
     }
     kick();
   };
-  if (video.readyState >= 1) run();
-  else video.addEventListener("loadedmetadata", run, { once: true });
+  const begin = () => {
+    const playing = video.play();
+    if (playing && typeof playing.then === "function") {
+      playing.then(cue).catch(() => cue());
+      return;
+    }
+    cue();
+  };
+  if (video.readyState >= 2) begin();
+  else video.addEventListener("loadeddata", begin, { once: true });
 }
 
 function syncRecordVideo() {
