@@ -93,9 +93,46 @@ a { color: inherit; }
   height: calc(120px + env(safe-area-inset-top));
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 100;
+  overflow: visible;
+}
+
+.navbar::before,
+.navbar::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 0;
+  width: 100vw;
+  height: calc(100% + 64px);
+  pointer-events: none;
+  margin-left: -50vw;
+}
+
+.navbar::before {
+  backdrop-filter: blur(20px) saturate(1.12);
+  -webkit-backdrop-filter: blur(20px) saturate(1.12);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 100%);
+}
+
+.navbar::after {
+  background: linear-gradient(
+    to bottom,
+    rgb(232 238 246 / .9) 0%,
+    rgb(232 238 246 / .48) 44%,
+    rgb(232 238 246 / 0) 100%
+  );
+}
+
+.navbar.menu-open::before,
+.navbar.menu-open::after {
+  opacity: 0;
 }
 
 html.is-embedded .navbar {
@@ -497,6 +534,11 @@ html.is-embedded .navbar {
     padding-right: calc(20px + env(safe-area-inset-right));
   }
 
+  .navbar::before,
+  .navbar::after {
+    height: calc(100% + 40px);
+  }
+
   .nav-home {
     gap: 8px;
     font-size: 22px;
@@ -759,15 +801,15 @@ h2 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transform: translateY(-12vh);
+  transform: translateY(-2vh);
 }
 
 html.is-embedded .hero-copy {
-  transform: translateY(-4vh);
+  transform: none;
 }
 
 html[lang="zh-CN"] .hero-copy {
-  transform: translateY(-6vh);
+  transform: translateY(3vh);
 }
 
 html[lang="zh-CN"].is-embedded .hero-copy,
@@ -1479,7 +1521,7 @@ html.is-embedded .sticky-download {
 
 @media (max-width: 767px) {
   .hero { padding-top: 5rem; }
-  .hero-copy { transform: translateY(-6vh); }
+  .hero-copy { transform: translateY(2vh); }
   html.is-embedded .hero { padding-top: 6.75rem; }
   html.is-embedded .hero-copy { transform: none; }
   .hero-copy .xhs-card { width: 176px; }
