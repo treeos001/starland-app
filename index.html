@@ -1,30 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-asset-root="./">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#D7E1F1" />
+    <title data-en="MyStarland — iPhone app that turns written moments into memory islands" data-zh="记忆岛 MyStarland — 把写下的瞬间变成岛屿的 iPhone 记忆 App">MyStarland — iPhone app that turns written moments into memory islands</title>
     <meta
       name="description"
-      content="Write down a moment. Starland gives it a place to belong."
+      content="MyStarland is a personal memory app for iPhone. Write down a moment, and it becomes a colored memory orb, then an island. Memory analysis happens on your device first."
+      data-en="MyStarland is a personal memory app for iPhone. Write down a moment, and it becomes a colored memory orb, then an island. Memory analysis happens on your device first."
+      data-zh="记忆岛是一款 iPhone 个人记忆 App。写下一段瞬间，它会先变成记忆球，再慢慢长成岛屿。记忆分析优先在设备本地完成。"
     />
     <link rel="canonical" href="https://starland.app/" />
     <link rel="alternate" hreflang="en" href="https://starland.app/" />
-    <link rel="alternate" hreflang="zh-CN" href="https://starland.app/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://starland.app/zh/" />
     <link rel="alternate" hreflang="x-default" href="https://starland.app/" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MyStarland" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="zh_CN" />
-    <meta property="og:title" content="MyStarland — Ordinary moments disappear. Give them somewhere to stay." />
-    <meta property="og:description" content="Write down a moment. Starland gives it a place to belong." />
+    <meta property="og:title" content="MyStarland — iPhone app that turns written moments into memory islands" />
+    <meta property="og:description" content="MyStarland is a personal memory app for iPhone. Write down a moment, and it becomes a colored memory orb, then an island. Memory analysis happens on your device first." />
     <meta property="og:url" content="https://starland.app/" />
     <meta property="og:image" content="https://starland.app/Assets/Starland/app-icon.png" />
+    <meta property="og:image:alt" content="MyStarland app icon" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="MyStarland — Ordinary moments disappear. Give them somewhere to stay." />
-    <meta name="twitter:description" content="Write down a moment. Starland gives it a place to belong." />
-    <title>MyStarland — Ordinary moments disappear. Give them somewhere to stay.</title>
+    <meta name="twitter:title" content="MyStarland — iPhone app that turns written moments into memory islands" />
+    <meta name="twitter:description" content="MyStarland is a personal memory app for iPhone. Write down a moment, and it becomes a colored memory orb, then an island. Memory analysis happens on your device first." />
     <link rel="icon" type="image/png" href="Assets/Starland/app-icon.png" />
     <link rel="apple-touch-icon" href="Assets/Starland/app-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,35 +36,118 @@
     <script>
       if (window.parent !== window) document.documentElement.classList.add("is-embedded");
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260913-nav-veil-04" />
+    <link rel="stylesheet" href="styles.css?v=20260913-seo-01" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "MyStarland",
-      "alternateName": ["Starland", "记忆岛"],
-      "url": "https://starland.app/",
-      "mainEntityOfPage": "https://starland.app/",
-      "inLanguage": ["en", "zh-CN"],
-      "image": "https://starland.app/Assets/Starland/app-icon.png",
-      "operatingSystem": "iOS",
-      "applicationCategory": "LifestyleApplication",
-      "description": "Write down a moment. Starland gives it a place to belong.",
-      "author": {
-        "@type": "Person",
-        "name": "Shukuinan",
-        "alternateName": "祝以南",
-        "url": "https://www.wowdesign.fun/"
-      }
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://starland.app/#shukuinan",
+          "name": "Shukuinan",
+          "alternateName": ["祝以南", "SHUKUINAN"],
+          "url": "https://www.wowdesign.fun/",
+          "jobTitle": "Designer",
+          "sameAs": [
+            "https://x.com/treeman730",
+            "https://www.xiaohongshu.com/user/profile/5e56621c0000000001004885",
+            "https://www.wowdesign.fun/",
+            "https://muse-tap.com/"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://starland.app/#app",
+          "name": "MyStarland",
+          "alternateName": ["Starland", "记忆岛"],
+          "url": "https://starland.app/",
+          "mainEntityOfPage": "https://starland.app/",
+          "inLanguage": ["en", "zh-CN"],
+          "image": "https://starland.app/Assets/Starland/app-icon.png",
+          "screenshot": "https://starland.app/Assets/Starland/showcase-poster-en.jpg",
+          "operatingSystem": "iOS",
+          "applicationCategory": "LifestyleApplication",
+          "description": "MyStarland is a personal memory app for iPhone. Write down a moment, and it becomes a colored memory orb, then an island. Memory analysis happens on your device first.",
+          "author": { "@id": "https://starland.app/#shukuinan" },
+          "sameAs": [
+            "https://x.com/treeman730",
+            "https://www.xiaohongshu.com/user/profile/5e56621c0000000001004885",
+            "https://www.wowdesign.fun/#starland"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "name": "MyStarland",
+          "alternateName": ["Starland", "记忆岛"],
+          "url": "https://starland.app/",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://starland.app/#shukuinan" }
+        }
+      ]
     }
     </script>
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="ld-faq">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "MyStarland",
-      "url": "https://starland.app/",
-      "inLanguage": "en"
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Starland?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Starland (MyStarland) is a personal memory app for iPhone. The moments you write down slowly become islands."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to organize my memories myself?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Just write down the moment. Starland helps each memory find a place to belong."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Memory analysis happens on your device first. Starland doesn’t rely on ads, and doesn’t sell your personal data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I look back at old memories?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can revisit memories through your timeline, islands, and memory review features."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which devices does Starland support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Starland is currently available on iPhone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Starland different from a journal app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A journal keeps entries in a list. Starland places each memory on an island for a part of your life, and colors it by how it felt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I try MyStarland?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MyStarland is available as an iPhone trial. Find Shukuinan on X to request access."
+          }
+        }
+      ]
     }
     </script>
   </head>
@@ -85,8 +171,8 @@
             </svg>
           </button>
           <div class="lang-dropdown" id="langDropdown" role="listbox">
-            <a href="#" role="option" data-lang="zh">中</a>
-            <a href="#" role="option" data-lang="en">En</a>
+            <a href="zh/" role="option" data-lang="zh">中</a>
+            <a href="./" role="option" data-lang="en">En</a>
           </div>
         </div>
         <div class="social-icons">
@@ -107,8 +193,8 @@
         <nav class="mobile-nav">
           <a href="#about" class="mobile-nav-item mobile-about-open localize" role="button" data-en="About" data-zh="关于">About</a>
           <div class="mobile-lang">
-            <a href="#" role="option" data-lang="zh">中</a>
-            <a href="#" role="option" data-lang="en">En</a>
+            <a href="zh/" role="option" data-lang="zh">中</a>
+            <a href="./" role="option" data-lang="en">En</a>
           </div>
         </nav>
         <div class="mobile-social">
@@ -157,6 +243,7 @@
           <p class="wordmark">MyStarland</p>
           <h1 id="hero-title" class="localize" data-en="Ordinary moments disappear,<br>Give them somewhere to stay." data-zh="普通的日子也会消失，给它们一个留下来的地方。">Ordinary moments disappear,<br>Give them somewhere to stay.</h1>
           <p class="lede localize" data-en="Write down a moment. Starland gives it a place to belong." data-zh="写下一段瞬间，记忆岛会让它落在属于自己的地方。">Write down a moment. Starland gives it a place to belong.</p>
+          <p class="product-summary localize" data-en="MyStarland is a personal memory app for iPhone. Write a moment, and it becomes a colored orb, then an island." data-zh="记忆岛 MyStarland 是一款 iPhone 个人记忆 App。写下一段瞬间，它会先变成记忆球，再慢慢长成一座岛。">MyStarland is a personal memory app for iPhone. Write a moment, and it becomes a colored orb, then an island.</p>
           <a class="tf-badge trial-link" href="https://x.com/treeman730" target="_blank" rel="noopener noreferrer" data-href-en="https://x.com/treeman730" data-href-zh="https://www.xiaohongshu.com/user/profile/5e56621c0000000001004885?xsec_token=YBqgjhpWcEMDag6dY9kp-q4vRDh8qoKZPtLFFIorZBJxc=&amp;xsec_source=app_share">
             <img class="tf-badge-icon trial-icon-red" src="Assets/SocialLogo/ic/Red.svg" alt="" />
             <svg class="tf-badge-icon trial-icon-x" viewBox="0 0 24 24" aria-hidden="true">
@@ -315,7 +402,7 @@
         <div class="faq-list">
           <details>
             <summary class="localize" data-en="What is Starland?" data-zh="记忆岛是什么？">What is Starland?</summary>
-            <p class="localize" data-en="Starland is a personal memory app where the moments you record slowly become islands." data-zh="记忆岛是一款记录生活瞬间的 App。你写下的记忆，会慢慢形成不同的岛屿。">Starland is a personal memory app where the moments you record slowly become islands.</p>
+            <p class="localize" data-en="Starland (MyStarland) is a personal memory app for iPhone. The moments you write down slowly become islands." data-zh="记忆岛（MyStarland）是一款 iPhone 个人记忆 App。你写下的瞬间，会慢慢形成不同的岛屿。">Starland (MyStarland) is a personal memory app for iPhone. The moments you write down slowly become islands.</p>
           </details>
           <details>
             <summary class="localize" data-en="Do I need to organize my memories myself?" data-zh="我需要自己整理记忆吗？">Do I need to organize my memories myself?</summary>
@@ -333,6 +420,14 @@
             <summary class="localize" data-en="Which devices does Starland support?" data-zh="记忆岛支持哪些设备？">Which devices does Starland support?</summary>
             <p class="localize" data-en="Starland is currently available on iPhone." data-zh="目前记忆岛支持 iPhone。">Starland is currently available on iPhone.</p>
           </details>
+          <details>
+            <summary class="localize" data-en="How is Starland different from a journal app?" data-zh="记忆岛和普通日记 App 有什么不同？">How is Starland different from a journal app?</summary>
+            <p class="localize" data-en="A journal keeps entries in a list. Starland places each memory on an island for a part of your life, and colors it by how it felt." data-zh="日记通常按时间排成一份清单。记忆岛会把每段记忆放进生活对应的岛屿，并用颜色记住当时的感受。">A journal keeps entries in a list. Starland places each memory on an island for a part of your life, and colors it by how it felt.</p>
+          </details>
+          <details>
+            <summary class="localize" data-en="How can I try MyStarland?" data-zh="现在如何试用记忆岛？">How can I try MyStarland?</summary>
+            <p class="localize" data-en="MyStarland is available as an iPhone trial. Find Shukuinan on X to request access." data-zh="记忆岛目前提供 iPhone 试用。来小红书找祝以南即可申请。">MyStarland is available as an iPhone trial. Find Shukuinan on X to request access.</p>
+          </details>
         </div>
       </section>
     </main>
@@ -340,6 +435,7 @@
     <footer>
       <p class="wordmark">MyStarland</p>
       <p class="localize" data-en="Made for the moments worth keeping." data-zh="为值得留下的瞬间而做。">Made for the moments worth keeping.</p>
+      <p class="site-credit localize" data-en="A product by <a class='inline-link' href='https://www.wowdesign.fun/' target='_blank' rel='noopener noreferrer'>Shukuinan</a>" data-zh="设计师 <a class='inline-link' href='https://www.wowdesign.fun/' target='_blank' rel='noopener noreferrer'>祝以南</a> 的作品">A product by <a class="inline-link" href="https://www.wowdesign.fun/" target="_blank" rel="noopener noreferrer">Shukuinan</a></p>
       <p>© <span id="year"></span> MyStarland</p>
     </footer>
 
@@ -382,6 +478,6 @@
       </div>
     </div>
 
-    <script src="app.js?v=20260912-en-start-125"></script>
+    <script src="app.js?v=20260913-seo-01"></script>
   </body>
 </html>

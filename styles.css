@@ -836,11 +836,20 @@ h1 {
 
 .lede {
   max-width: 37rem;
-  margin: .75rem 0 1.7rem;
+  margin: .75rem 0 .55rem;
   color: #484954;
   font-size: clamp(.78rem, 1.2vw, 1rem);
   line-height: 1.65;
   animation: rise-in .7s var(--spring) both .57s;
+}
+
+.product-summary {
+  max-width: 34rem;
+  margin: 0 0 1.5rem;
+  color: #6b6b7b;
+  font-size: clamp(.68rem, 1.05vw, .86rem);
+  line-height: 1.6;
+  animation: rise-in .7s var(--spring) both .62s;
 }
 
 .orb-anchor {
@@ -1341,6 +1350,10 @@ footer .wordmark {
 footer p:not(.wordmark) {
   margin: .3rem 0;
   font-size: .66rem;
+}
+
+.site-credit {
+  color: var(--muted);
 }
 
 .sticky-download {

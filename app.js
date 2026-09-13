@@ -1,4 +1,6 @@
-const assetRoot = "Assets/Starland/islands/";
+const assetBase = document.documentElement.dataset.assetRoot || "./";
+const asset = (path) => assetBase + path;
+const assetRoot = asset("Assets/Starland/islands/");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const travelOrb = document.querySelector("#travel-orb");
 const orbCore = travelOrb.querySelector(".orb-core");
@@ -86,21 +88,21 @@ let currentView = "home";
 let recordPlaying = false;
 let recordIntroPending = true;
 const recordVideos = {
-  zh: { src: "Assets/Starland/zh.mp4?v=20260911-play-03", start: 9 },
-  en: { src: "Assets/Starland/en.mp4?v=20260911-play-03", start: 12.5 },
+  zh: { src: asset("Assets/Starland/zh.mp4?v=20260911-play-03"), start: 9 },
+  en: { src: asset("Assets/Starland/en.mp4?v=20260911-play-03"), start: 12.5 },
 };
 const showcaseMedia = {
   zh: {
-    home: "Assets/Starland/showcase/zh-home.mp4?v=20260911-play-03",
-    timeline: "Assets/Starland/showcase/zh-timeline.mp4?v=20260911-play-03",
-    island: "Assets/Starland/showcase/zh-island.mp4?v=20260911-play-03",
-    emotion: "Assets/Starland/showcase/zh-emotion.mp4?v=20260911-play-03",
+    home: asset("Assets/Starland/showcase/zh-home.mp4?v=20260911-play-03"),
+    timeline: asset("Assets/Starland/showcase/zh-timeline.mp4?v=20260911-play-03"),
+    island: asset("Assets/Starland/showcase/zh-island.mp4?v=20260911-play-03"),
+    emotion: asset("Assets/Starland/showcase/zh-emotion.mp4?v=20260911-play-03"),
   },
   en: {
-    home: "Assets/Starland/showcase/en-home.mp4?v=20260911-play-03",
-    timeline: "Assets/Starland/showcase/en-timeline.mp4?v=20260911-play-03",
-    island: "Assets/Starland/showcase/en-island.mp4?v=20260911-play-03",
-    emotion: "Assets/Starland/showcase/en-emotion.mp4?v=20260911-play-03",
+    home: asset("Assets/Starland/showcase/en-home.mp4?v=20260911-play-03"),
+    timeline: asset("Assets/Starland/showcase/en-timeline.mp4?v=20260911-play-03"),
+    island: asset("Assets/Starland/showcase/en-island.mp4?v=20260911-play-03"),
+    emotion: asset("Assets/Starland/showcase/en-emotion.mp4?v=20260911-play-03"),
   },
 };
 
@@ -112,17 +114,19 @@ let showcaseVisible = false;
 
 const LANG_KEY = "starland-lang";
 
+function isZhPath() {
+  const path = location.pathname.replace(/\/index\.html$/, "").replace(/\/$/, "") || "/";
+  return path === "/zh" || path.endsWith("/zh");
+}
+
 function detectLang() {
+  if (isZhPath()) return "zh";
   try {
     if (window.parent && window.parent !== window) {
       const parentLang = window.parent.document.documentElement.lang || "";
       if (parentLang.startsWith("zh")) return "zh";
       if (parentLang.startsWith("en")) return "en";
     }
-  } catch (_) {}
-  try {
-    const saved = localStorage.getItem(LANG_KEY);
-    if (saved === "zh" || saved === "en") return saved;
   } catch (_) {}
   return "en";
 }
@@ -133,16 +137,17 @@ function applyLang(nextLang) {
   try { localStorage.setItem(LANG_KEY, lang); } catch (_) {}
   const currentLangText = document.querySelector("#currentLang");
   if (currentLangText) currentLangText.textContent = lang === "zh" ? "中" : "En";
-  const title = lang === "zh"
-    ? "MyStarland — 普通的日子也会消失，给它们一个留下来的地方。"
-    : "MyStarland — Ordinary moments disappear. Give them somewhere to stay.";
-  const description = lang === "zh"
-    ? "写下一段瞬间，记忆岛会让它落在属于自己的地方。"
-    : "Write down a moment. Starland gives it a place to belong.";
+  const titleEl = document.querySelector("title");
+  const descEl = document.querySelector('meta[name="description"]');
+  const title = (lang === "zh" ? titleEl?.dataset.zh : titleEl?.dataset.en) || document.title;
+  const description = (lang === "zh" ? descEl?.dataset.zh : descEl?.dataset.en) || "";
   document.title = title;
-  document.querySelector('meta[name="description"]')?.setAttribute("content", description);
+  descEl?.setAttribute("content", description);
   document.querySelector('meta[property="og:title"]')?.setAttribute("content", title);
   document.querySelector('meta[property="og:description"]')?.setAttribute("content", description);
+  document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", title);
+  document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", description);
+  document.querySelector('meta[property="og:locale"]')?.setAttribute("content", lang === "zh" ? "zh_CN" : "en_US");
   document.querySelectorAll(".localize").forEach((el) => {
     const copy = lang === "zh" ? el.dataset.zh : el.dataset.en;
     if (copy) el.innerHTML = copy;
@@ -380,14 +385,14 @@ function recordClip() {
 
 function recordPoster() {
   return lang === "zh"
-    ? "Assets/Starland/record-poster-zh.jpg?v=20260911-play-03"
-    : "Assets/Starland/record-poster-en.jpg?v=20260911-play-03";
+    ? asset("Assets/Starland/record-poster-zh.jpg?v=20260911-play-03")
+    : asset("Assets/Starland/record-poster-en.jpg?v=20260911-play-03");
 }
 
 function showcasePoster() {
   return lang === "zh"
-    ? "Assets/Starland/showcase-poster-zh.jpg?v=20260911-play-03"
-    : "Assets/Starland/showcase-poster-en.jpg?v=20260911-play-03";
+    ? asset("Assets/Starland/showcase-poster-zh.jpg?v=20260911-play-03")
+    : asset("Assets/Starland/showcase-poster-en.jpg?v=20260911-play-03");
 }
 
 function armVideo(video) {
@@ -823,9 +828,7 @@ if (langTrigger && langSelector) {
     langTrigger.setAttribute("aria-expanded", open ? "true" : "false");
   });
   document.querySelectorAll(".lang-dropdown a").forEach((item) => {
-    item.addEventListener("click", (event) => {
-      event.preventDefault();
-      applyLang(item.dataset.lang);
+    item.addEventListener("click", () => {
       langSelector.classList.remove("open");
       langTrigger.setAttribute("aria-expanded", "false");
     });
@@ -866,9 +869,8 @@ if (burgerToggle && mobileMenu) {
 }
 
 document.querySelectorAll(".mobile-lang a").forEach((item) => {
-  item.addEventListener("click", (event) => {
-    event.preventDefault();
-    applyLang(item.dataset.lang);
+  item.addEventListener("click", () => {
+    closeMobileMenuIfOpen();
   });
 });
 
