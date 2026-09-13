@@ -159,9 +159,9 @@ html.is-embedded .navbar {
 }
 
 html[lang="zh-CN"] .nav-home {
-  font-family: "Songti SC", "STSong", "Noto Serif SC", Georgia, serif;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
   font-style: normal;
-  letter-spacing: .08em;
+  letter-spacing: .02em;
 }
 
 .nav-app-icon {
@@ -642,9 +642,9 @@ html[lang="zh-CN"] .nav-home {
 }
 
 html[lang="zh-CN"] .wordmark {
-  font-family: "Songti SC", "STSong", "Noto Serif SC", Georgia, serif;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
   font-style: normal;
-  letter-spacing: .12em;
+  letter-spacing: .04em;
 }
 
 h1, h2, h3, p { margin-top: 0; }
