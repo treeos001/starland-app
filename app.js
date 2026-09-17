@@ -156,8 +156,9 @@ function applyLang(nextLang) {
   document.querySelectorAll("[data-aria-en]").forEach((el) => {
     el.setAttribute("aria-label", lang === "zh" ? el.dataset.ariaZh : el.dataset.ariaEn);
   });
-  document.querySelectorAll(".trial-link").forEach((el) => {
-    el.href = lang === "zh" ? el.dataset.hrefZh : el.dataset.hrefEn;
+  document.querySelectorAll("[data-href-en]").forEach((el) => {
+    const next = lang === "zh" ? el.dataset.hrefZh : el.dataset.hrefEn;
+    if (next) el.href = next;
   });
   document.querySelectorAll(".island-card").forEach((card) => {
     card.querySelector("img").alt = lang === "zh" ? card.dataset.nameZh : card.dataset.nameEn;
@@ -946,7 +947,7 @@ window.addEventListener("hashchange", () => {
 });
 if (location.hash === "#about") openAboutModal();
 
-window.matchMedia("(max-width: 767px)").addEventListener("change", (event) => {
+window.matchMedia("(max-width: 639px)").addEventListener("change", (event) => {
   if (!event.matches) closeMobileMenuIfOpen();
 });
 

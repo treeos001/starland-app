@@ -113,6 +113,21 @@ window.addEventListener("hashchange", () => {
 });
 if (location.hash === "#about") openAboutModal();
 
-window.matchMedia("(max-width: 767px)").addEventListener("change", (event) => {
+window.matchMedia("(max-width: 639px)").addEventListener("change", (event) => {
   if (!event.matches) closeMobileMenuIfOpen();
+});
+
+window.addEventListener("message", (event) => {
+  if (event.data?.type !== "starland-lang") return;
+  const next = String(event.data.lang || "").startsWith("zh") ? "zh" : "en";
+  const path = location.pathname;
+  const onZh = /\/zh\//.test(path);
+  const onPrivacy = path.includes("/privacy");
+  const onTerms = path.includes("/terms");
+  if (!onPrivacy && !onTerms) return;
+  if (next === "zh" && !onZh) {
+    location.replace(onPrivacy ? "../zh/privacy/" : "../zh/terms/");
+  } else if (next === "en" && onZh) {
+    location.replace(onPrivacy ? "../../privacy/" : "../../terms/");
+  }
 });

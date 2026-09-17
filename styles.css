@@ -560,7 +560,7 @@ html[lang="zh-CN"] .nav-home {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 639px) {
   .nav-about,
   .lang-selector,
   .social-icons {
@@ -587,7 +587,9 @@ html[lang="zh-CN"] .nav-home {
   .burger-menu.open span:nth-child(3) {
     transform: rotate(-45deg);
   }
+}
 
+@media (max-width: 767px) {
   .modal-overlay {
     align-items: flex-end;
   }
@@ -1677,6 +1679,16 @@ html[lang="zh-CN"] .legal-doc {
 html[lang="zh-CN"] .legal-doc h1,
 html[lang="zh-CN"] .legal-doc h2 {
   letter-spacing: .04em;
+}
+
+.legal-back {
+  display: none;
+  margin: 0 0 1.25rem;
+  font-size: .72rem;
+}
+
+html.is-embedded .legal-back {
+  display: block;
 }
 
 .legal-nav {
