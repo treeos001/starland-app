@@ -8,6 +8,10 @@ The product is designed by Shukuinan (祝以南).
 
 - [Starland](https://starland.app/): English product page
 - [记忆岛](https://starland.app/zh/): Chinese product page
+- [Privacy Policy](https://starland.app/privacy/)
+- [Terms of Service](https://starland.app/terms/)
+- [隐私政策](https://starland.app/zh/privacy/)
+- [用户协议](https://starland.app/zh/terms/)
 
 ## Facts
 

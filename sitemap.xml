@@ -17,4 +17,36 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://starland.app/zh/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://starland.app/" />
   </url>
+  <url>
+    <loc>https://starland.app/privacy/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://starland.app/privacy/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://starland.app/zh/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://starland.app/privacy/" />
+  </url>
+  <url>
+    <loc>https://starland.app/zh/privacy/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://starland.app/privacy/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://starland.app/zh/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://starland.app/privacy/" />
+  </url>
+  <url>
+    <loc>https://starland.app/terms/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://starland.app/terms/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://starland.app/zh/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://starland.app/terms/" />
+  </url>
+  <url>
+    <loc>https://starland.app/zh/terms/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://starland.app/terms/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://starland.app/zh/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://starland.app/terms/" />
+  </url>
 </urlset>
