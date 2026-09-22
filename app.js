@@ -161,7 +161,11 @@ function applyLang(nextLang) {
     if (next) el.href = next;
   });
   document.querySelectorAll(".island-card").forEach((card) => {
-    card.querySelector("img").alt = lang === "zh" ? card.dataset.nameZh : card.dataset.nameEn;
+    const name = lang === "zh" ? card.dataset.nameZh : card.dataset.nameEn;
+    const img = card.querySelector("img");
+    if (img && name) {
+      img.alt = lang === "zh" ? `记忆岛中的${name}` : `${name} island in Starland`;
+    }
   });
   document.querySelectorAll(".mobile-lang a").forEach((el) => {
     el.classList.toggle("is-active", el.dataset.lang === lang);

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#D7E1F1" />
+    <title>Page not found — Starland</title>
+    <meta name="description" content="This page is not on Starland." />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/png" href="/Assets/Starland/app-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css?v=20260917-nav-02" />
+  </head>
+  <body>
+    <main>
+      <article class="legal-doc" id="legal" style="padding-top: calc(4.5rem + env(safe-area-inset-top)); text-align: center;">
+        <p class="wordmark" id="not-found-wordmark">Starland</p>
+        <h1 id="not-found-title">Page not found</h1>
+        <p id="not-found-copy">This page isn’t on Starland.</p>
+        <p><a class="inline-link" id="not-found-home" href="/">Back to Starland</a></p>
+      </article>
+    </main>
+    <script>
+      (function () {
+        var zh = /^\/zh(\/|$)/.test(location.pathname);
+        if (!zh) return;
+        document.documentElement.lang = "zh-CN";
+        document.title = "页面不存在 — 记忆岛";
+        document.getElementById("not-found-wordmark").textContent = "记忆岛";
+        document.getElementById("not-found-title").textContent = "找不到这个页面";
+        document.getElementById("not-found-copy").textContent = "记忆岛上没有这一页。";
+        var home = document.getElementById("not-found-home");
+        home.textContent = "回到记忆岛";
+        home.setAttribute("href", "/zh/");
+      })();
+    </script>
+  </body>
+</html>
